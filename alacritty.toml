@@ -1,0 +1,114 @@
+# Alacritty config — MesloLGS Nerd Font + VS Code Dark+ theme
+# Location:
+#   macOS / Linux: ~/.config/alacritty/alacritty.toml
+#   Windows:       %APPDATA%\alacritty\alacritty.toml
+
+[general]
+live_config_reload = true
+# Per-OS shell. Alacritty silently skips imports that don't exist, so each
+# path only resolves on its own OS. Windows is listed last so it wins if both exist.
+# Don't set [terminal.shell] in this file — it would override the imports.
+import = [
+    "~/.config/alacritty/shell-unix.toml",              # macOS / Linux -> zsh
+    "~/AppData/Roaming/alacritty/shell-windows.toml",   # Windows       -> pwsh
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 10, y = 8 }
+dynamic_padding = true
+decorations = "Full"        # "Buttonless" on macOS gives a cleaner look
+opacity = 1.0
+dynamic_title = true
+dimensions = { columns = 120, lines = 32 }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "MesloLGS Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "MesloLGS Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "MesloLGS Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "MesloLGS Nerd Font"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 2                       # a little extra line spacing, like VS Code
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_interval = 530
+unfocused_hollow = true
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+# ---------- VS Code Dark+ colors ----------
+
+[colors.primary]
+background = "#1e1e1e"
+foreground = "#d4d4d4"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+text = "#1e1e1e"
+cursor = "#aeafad"
+
+[colors.vi_mode_cursor]
+text = "#1e1e1e"
+cursor = "#aeafad"
+
+[colors.selection]
+text = "CellForeground"
+background = "#264f78"
+
+[colors.search.matches]
+foreground = "#1e1e1e"
+background = "#e5e510"
+
+[colors.search.focused_match]
+foreground = "#1e1e1e"
+background = "#f5f543"
+
+[colors.footer_bar]
+foreground = "#ffffff"
+background = "#007acc"      # VS Code status-bar blue
+
+[colors.normal]
+black   = "#000000"
+red     = "#cd3131"
+green   = "#0dbc79"
+yellow  = "#e5e510"
+blue    = "#2472c8"
+magenta = "#bc3fbc"
+cyan    = "#11a8cd"
+white   = "#e5e5e5"
+
+[colors.bright]
+black   = "#666666"
+red     = "#f14c4c"
+green   = "#23d18b"
+yellow  = "#f5f543"
+blue    = "#3b8eea"
+magenta = "#d670d6"
+cyan    = "#29b8db"
+white   = "#e5e5e5"

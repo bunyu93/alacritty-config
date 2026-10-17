@@ -1,0 +1,13 @@
+# Shell for Windows — imported from alacritty.toml
+# Starts psmux (tmux for Windows) if it is installed, otherwise a plain pwsh.
+# psmux launches PowerShell 7 in its panes, so you get pwsh either way.
+# -A attaches to "main" if it already exists, otherwise creates it in $HOME
+# (-c only applies when the session is created, not when re-attaching).
+# The outer pwsh runs with -NoProfile so your $PROFILE is only loaded once,
+# inside the real shell.
+[terminal.shell]
+program = "pwsh"
+args = [
+    "-NoLogo", "-NoProfile", "-Command",
+    "if (Get-Command psmux -ErrorAction SilentlyContinue) { psmux new-session -A -s main -c $HOME } else { Set-Location $HOME; pwsh -NoLogo }",
+]

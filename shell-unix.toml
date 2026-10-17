@@ -1,0 +1,11 @@
+# Shell for macOS / Linux — imported from alacritty.toml
+# Login zsh so ~/.zprofile (Homebrew PATH etc.) is loaded, then exec into tmux
+# if it is installed, otherwise stay in a plain interactive zsh.
+# -A attaches to "main" if it already exists, otherwise creates it in $HOME
+# (-c only applies when the session is created, not when re-attaching).
+[terminal.shell]
+program = "zsh"
+args = [
+    "-l", "-c",
+    "if command -v tmux >/dev/null 2>&1; then exec tmux new-session -A -s main -c \"$HOME\"; else cd \"$HOME\" && exec zsh; fi",
+]
